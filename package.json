@@ -1,0 +1,65 @@
+{
+  "name": "@bybrave/json5",
+  "version": "3.0.0",
+  "description": "Maintained fork of json5 — the JSON5 parser/stringifier with fixed dual ESM/CJS exports (named exports match, #240/#348), esbuild build, and bundled TypeScript types",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./register": "./lib/register.cjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "json5": "./lib/cli.js"
+  },
+  "files": [
+    "lib/",
+    "dist/"
+  ],
+  "scripts": {
+    "build": "node build/build.js",
+    "test": "node --test test/*.test.js",
+    "test-types": "tsc --noEmit --strict test/type-declarations.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bybraveHQ/json5.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bybraveHQ/json5/issues"
+  },
+  "homepage": "https://github.com/bybraveHQ/json5#readme",
+  "keywords": [
+    "json5",
+    "json",
+    "parser",
+    "stringify",
+    "es5",
+    "esm",
+    "config",
+    "configuration",
+    "typescript"
+  ],
+  "author": "bybrave (https://github.com/bybraveHQ)",
+  "contributors": [
+    "Aseem Kishore (author of the original json5)",
+    "Jordan Tucker"
+  ],
+  "license": "MIT",
+  "funding": "https://ko-fi.com/bybrave",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "esbuild": "^0.23.0",
+    "typescript": "^5.5.0"
+  }
+}
