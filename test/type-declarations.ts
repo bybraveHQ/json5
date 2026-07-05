@@ -18,4 +18,8 @@ const f: string = stringify({a: 1, b: 2}, ['a'])
 const opts: StringifyOptions = {space: 2, quote: '"'}
 const g: string = stringify({a: 1}, opts)
 
-void [a, b, c, d, e, f, g]
+// parse options (#292): third-arg and second-arg forms
+const h: bigint = parse<bigint>('99999999999999999999', null, {bigint: true})
+const i: bigint = parse<bigint>('99999999999999999999', {bigint: true})
+
+void [a, b, c, d, e, f, g, h, i]

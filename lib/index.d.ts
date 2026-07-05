@@ -1,3 +1,12 @@
+export type ParseOptions = {
+    /**
+     * When true, integer literals outside the safe integer range
+     * (`Number.MAX_SAFE_INTEGER`) are returned as `BigInt` to preserve
+     * precision. Other values are unaffected. Defaults to false.
+     */
+    bigint?: boolean
+}
+
 /**
  * Parses a JSON5 string, constructing the JavaScript value or object described
  * by the string.
@@ -5,11 +14,20 @@
  * @param text The string to parse as JSON5.
  * @param reviver A function that prescribes how the value originally produced by
  * parsing is transformed before being returned.
+ * @param options Parse options, e.g. `{ bigint: true }`.
  */
 export function parse<T = any>(
     text: string,
     reviver?: ((this: any, key: string, value: any) => any) | null,
+    options?: ParseOptions,
 ): T
+/**
+ * Parses a JSON5 string with options.
+ * @template T The type of the return value.
+ * @param text The string to parse as JSON5.
+ * @param options Parse options, e.g. `{ bigint: true }`.
+ */
+export function parse<T = any>(text: string, options: ParseOptions): T
 
 export type StringifyOptions = {
     replacer?:

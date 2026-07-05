@@ -1,6 +1,6 @@
 {
   "name": "@bybrave/json5",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Maintained fork of json5 — the JSON5 parser/stringifier with fixed dual ESM/CJS exports (named exports match, #240/#348), esbuild build, and bundled TypeScript types",
   "type": "module",
   "main": "./dist/index.cjs",
